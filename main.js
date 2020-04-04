@@ -8,15 +8,20 @@ function createWindow () {
     width: 800,
     height: 600,
     webPreferences: {
+      devTools: true,
+      experimentalFeatures: true,
+      enableBlinkFeatures: "NativeFileSystem",
       preload: path.join(__dirname, 'preload.js')
     }
   })
 
   // and load the index.html of the app.
-  mainWindow.loadFile('index.html')
+  // mainWindow.loadFile('index.html')
+  // mainWindow.loadURL("https://googlechromelabs.github.io/text-editor/");
+  mainWindow.loadURL("http://localhost:8080/");
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools()
 }
 
 // This method will be called when Electron has finished
